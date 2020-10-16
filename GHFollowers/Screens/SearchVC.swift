@@ -24,7 +24,6 @@ class SearchVC: UIViewController {
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
-        
         createDismissKeyboardTapGesture()
     }
     
