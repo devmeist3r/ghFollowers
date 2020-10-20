@@ -9,10 +9,10 @@ import UIKit
 
 class GFAlertVC: UIViewController {
     
-    let containerView = UIView()
-    let titleLabel = GFTitleLabel(textAlignment: .center, fontSize: 20)
-    let messageLabel = GFBodyLabel(textAlignment: .center)
-    let actionButton = GFButton(backgroundColor: .systemPink, title: "OK")
+    let containerView   = UIView()
+    let titleLabel      = GFTitleLabel(textAlignment: .center, fontSize: 20)
+    let messageLabel    = GFBodyLabel(textAlignment: .center)
+    let actionButton    = GFButton(backgroundColor: .systemPink, title: "Ok")
     
     var alertTitle: String?
     var message: String?
@@ -20,34 +20,36 @@ class GFAlertVC: UIViewController {
     
     let padding: CGFloat = 20
     
+    
     init(title: String, message: String, buttonTitle: String) {
         super.init(nibName: nil, bundle: nil)
-        self.alertTitle = title
-        self.message = message
-        self.buttonTitle = buttonTitle
+        self.alertTitle     = title
+        self.message        = message
+        self.buttonTitle    = buttonTitle
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
-        
         configureContainerView()
-        configureTitlteLabel()
+        configureTitleLabel()
         configureActionButton()
         configureMessageLabel()
     }
     
+    
     func configureContainerView() {
         view.addSubview(containerView)
-        containerView.backgroundColor = .systemBackground
-        containerView.layer.cornerRadius = 16
-        containerView.layer.borderWidth = 2
-        containerView.layer.borderColor = UIColor.white.cgColor
+        containerView.backgroundColor       = .systemBackground
+        containerView.layer.cornerRadius    = 16
+        containerView.layer.borderWidth     = 2
+        containerView.layer.borderColor     = UIColor.white.cgColor
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -58,7 +60,8 @@ class GFAlertVC: UIViewController {
         ])
     }
     
-    func configureTitlteLabel() {
+    
+    func configureTitleLabel() {
         containerView.addSubview(titleLabel)
         titleLabel.text = alertTitle ?? "Something went wrong"
         
@@ -70,9 +73,10 @@ class GFAlertVC: UIViewController {
         ])
     }
     
+    
     func configureActionButton() {
         containerView.addSubview(actionButton)
-        actionButton.setTitle(buttonTitle ?? "OK", for: .normal)
+        actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
@@ -83,10 +87,11 @@ class GFAlertVC: UIViewController {
         ])
     }
     
+    
     func configureMessageLabel() {
         containerView.addSubview(messageLabel)
-        messageLabel.text = message ?? "Unable to complete request"
-        messageLabel.numberOfLines = 0
+        messageLabel.text           = message ?? "Unable to complete request"
+        messageLabel.numberOfLines  = 4
         
         NSLayoutConstraint.activate([
             messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
@@ -96,8 +101,8 @@ class GFAlertVC: UIViewController {
         ])
     }
     
+    
     @objc func dismissVC() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
-
 }
