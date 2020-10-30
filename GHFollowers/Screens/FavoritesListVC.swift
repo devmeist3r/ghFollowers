@@ -37,12 +37,13 @@ class FavoritesListVC: GFDataLoadingVC {
         
         tablewView.delegate = self
         tablewView.dataSource = self
+        tablewView.removeExessCells()
         
         tablewView.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.reuseID)
     }
     
     func getFavorites() {
-        PersitenceManager.retrieveFavorites { [weak self] result in
+        PersistenceManager.retrieveFavorites { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -52,6 +53,7 @@ class FavoritesListVC: GFDataLoadingVC {
                 } else {
                     self.favorites = favorites
                     DispatchQueue.main.async {
+//                        self.tablewView.reloadDateOnMainThread()
                         self.tablewView.reloadData()
                         self.view.bringSubviewToFront(self.tablewView)
                     }
@@ -87,14 +89,15 @@ extension FavoritesListVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         
-        let favorite = favorites[indexPath.row]
-        favorites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .left)
-        
-        PersitenceManager.updateWith(favorite: favorite, actionType: PersistenceActionType.remove) { [weak self] error in
+        PersistenceManager.updateWith(favorite: favorites[indexPath.row], actionType: PersistenceActionType.remove) { [weak self] error in
             guard let self = self else { return }
-            guard let error = error else { return }
+            guard let error = error else {
+                self.favorites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .left)
+                return
+            }
             self.presentGFAlertOnMainThread(title: "Unable to remove", message: error.rawValue, buttonTitle: "OK")
         }
     }
+    
 }

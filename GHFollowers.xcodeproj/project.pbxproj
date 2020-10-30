@@ -43,6 +43,7 @@
 		E85B40D425476BBA00D63B2E /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85B40D325476BBA00D63B2E /* PersistenceManager.swift */; };
 		E8711AEC253DBDBE00F0B194 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8711AEB253DBDBE00F0B194 /* UIHelper.swift */; };
 		E8B913522547B60300030FBA /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B913512547B60300030FBA /* FavoriteCell.swift */; };
+		E8D7C0AF254C66A700130F33 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7C0AE254C66A700130F33 /* UITableView+Ext.swift */; };
 		E8FFC1022541FFB400263162 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFC1012541FFB400263162 /* UserInfoVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		E85B40D325476BBA00D63B2E /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		E8711AEB253DBDBE00F0B194 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		E8B913512547B60300030FBA /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		E8D7C0AE254C66A700130F33 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		E8FFC1012541FFB400263162 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -267,6 +269,7 @@
 				E8410AE725393BEC0024D93F /* String+Ext.swift */,
 				E8410AF6253946FD0024D93F /* UIViewController+Ext.swift */,
 				E8549F0E254BC23A007A128F /* UIView+Ext.swift */,
+				E8D7C0AE254C66A700130F33 /* UITableView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				E8FFC1022541FFB400263162 /* UserInfoVC.swift in Sources */,
 				E84F14512548551400BA464C /* GFTabBarController.swift in Sources */,
 				E8410B0325394B520024D93F /* Follower.swift in Sources */,
+				E8D7C0AF254C66A700130F33 /* UITableView+Ext.swift in Sources */,
 				E8410AC02538D6900024D93F /* AppDelegate.swift in Sources */,
 				E8410AEB25393DF80024D93F /* GFTitleLabel.swift in Sources */,
 				E8410AE825393BEC0024D93F /* String+Ext.swift in Sources */,

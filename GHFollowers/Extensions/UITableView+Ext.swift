@@ -5,4 +5,18 @@
 //  Created by Lucas Inocencio on 30/10/20.
 //
 
-import Foundation
+import UIKit
+
+extension UITableView {
+    
+    func reloadDateOnMainThread() {
+        DispatchQueue.main.async {
+            self.reloadData()
+        }
+    }
+    
+    func removeExessCells() {
+        tableFooterView = UIView(frame: .zero)
+    }
+    
+}
